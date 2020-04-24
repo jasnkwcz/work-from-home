@@ -1,0 +1,20 @@
+.NavContainer {
+	display: flex;
+	justify-content: center;
+	margin: auto;
+	background: black;
+}
+
+.NavItem {
+	flex-grow: 1;
+	text-align: center;
+	color: white;
+}
+
+.NavItem:hover {
+	background: gray;
+}
+
+.Nav-active {
+	color: red;
+}

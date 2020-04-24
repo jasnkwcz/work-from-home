@@ -1,0 +1,21 @@
+.ListItem div {
+	color: white;
+}
+
+.ListItem {
+	border: 1px solid white;
+}
+
+.List {
+	list-style-type: none;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	align-content: flex-start;
+}
+
+.ListContainer {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
