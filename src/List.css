@@ -1,9 +1,5 @@
-.ListItem div {
-	color: white;
-}
-
 .ListItem {
-	border: 1px solid white;
+	color: white;
 }
 
 .List {

@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import './List.css';
+import ProjectItem from './ProjectItem';
+import FeatureItem from './FeatureItem';
+import TaskItem from './TaskItem';
+import TeamItem from './TeamItem';
+import EmployeeItem from './EmployeeItem';
 
 export default class List extends Component {
 	static defaultProps = {
+		displayList: 'Projects', //default display is projects
 		items: [
 			{ ProjectName: 'p1', Team: 't1' },
 			{ ProjectName: 'p2', Team: 't2' },
@@ -18,17 +24,20 @@ export default class List extends Component {
 		return (
 			<div className="ListContainer">
 				<ul className="List">
-					{this.props.items.map((item) => (
-						<li className="ListItem">
-							<div>Project Name: {item.ProjectName}</div>
-							<div>Team: {item.Team}</div>
-							<button>View</button>
-							<button>Edit</button>
-							<button>Delete</button>
-							<button>Add Team Members</button>
-							<button>Add Features</button>
-						</li>
-					))}
+					{this.props.items.map((item) => {
+						switch (this.props.displayList) {
+							case 'Projects':
+								return <ProjectItem projectName={item.ProjectName} team={item.Team} />;
+							case 'Features':
+								return <FeatureItem />;
+							case 'Tasks':
+								return <TaskItem />;
+							case 'Teams':
+								return <TeamItem />;
+							case 'Employees':
+								return <EmployeeItem />;
+						}
+					})}
 				</ul>
 			</div>
 		);

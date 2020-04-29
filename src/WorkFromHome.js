@@ -24,11 +24,11 @@ export default class WorkFromHome extends Component {
 				<h1 className="PageTitle">Work From Home</h1>
 				<Navigation />
 				<Switch>
-					<Route exact path="/Projects" render={() => <List />} />
-					<Route exact path="/Features" render={() => <List />} />
-					<Route exact path="/Tasks" render={() => <List />} />
-					<Route exact path="/Teams" render={() => <List />} />
-					<Route exact path="/Employees" render={() => <List />} />
+					<Route exact path="/Projects" render={() => <List displayList="Projects" />} />
+					<Route exact path="/Features" render={() => <List displayList="Features" />} />
+					<Route exact path="/Tasks" render={() => <List displayList="Tasks" />} />
+					<Route exact path="/Teams" render={() => <List displayList="Teams" />} />
+					<Route exact path="/Employees" render={() => <List displayList="Employees" />} />
 				</Switch>
 				<div />
 			</div>
