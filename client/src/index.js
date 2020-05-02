@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import WorkFromHome from './WorkFromHome';
+import App from './App.js';
 import { BrowserRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
 	<BrowserRouter>
-		<WorkFromHome />
+		<App />
+		
 	</BrowserRouter>,
 	document.getElementById('root')
 );
