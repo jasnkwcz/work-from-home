@@ -21,7 +21,6 @@ export default class WorkFromHome extends Component {
 	render() {
 		return (
 			<div className="WorkFromHome">
-				<h1 className="PageTitle">Work From Home</h1>
 				<Navigation />
 				<Switch>
 					<Route exact path="/Projects" render={() => <List displayList="Projects" />} />

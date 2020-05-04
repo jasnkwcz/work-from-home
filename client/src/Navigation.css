@@ -2,19 +2,31 @@
 	display: flex;
 	justify-content: center;
 	margin: auto;
-	background: black;
 }
 
 .NavItem {
 	flex-grow: 1;
 	text-align: center;
 	color: white;
+	font-size: xx-large;
+	text-decoration: none;
+	margin: 1rem;
 }
 
-.NavItem:hover {
-	background: gray;
+.Nav-title {
+	flex-grow: 1;
+	text-align: center;
+	color: rgba(219, 96, 204, 1);
+	font-size: xx-large;
+	flex-basis: 50%;
+	text-align: right;
+	margin: 1rem;
 }
 
 .Nav-active {
-	color: red;
+	color: rgba(171, 72, 255, 1);
+}
+
+.Nav-divider {
+	width: 100%;
 }
