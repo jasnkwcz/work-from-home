@@ -33,7 +33,9 @@ export default class Navigation extends Component {
 							Employees
 						</NavLink>
 					</div>
+					<div className="Nav-title">Work From Home</div>
 				</div>
+				<hr className="Nav-divider" />
 			</div>
 		);
 	}
