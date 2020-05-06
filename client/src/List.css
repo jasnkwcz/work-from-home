@@ -1,5 +1,6 @@
 .ListItem {
 	margin: 1rem;
+	box-shadow: 1px 2px 5px;
 }
 
 .List {

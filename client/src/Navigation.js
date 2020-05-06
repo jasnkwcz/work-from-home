@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Navigation.css';
-import { NavLink, Switch, Route } from 'react-router-dom';
-import List from './List';
+import { NavLink } from 'react-router-dom';
 
 export default class Navigation extends Component {
 	render() {
@@ -14,16 +13,6 @@ export default class Navigation extends Component {
 						</NavLink>
 					</div>
 					<div className="NavItem">
-						<NavLink activeClassName="Nav-active" exact to="/Features">
-							Features
-						</NavLink>
-					</div>
-					<div className="NavItem">
-						<NavLink activeClassName="Nav-active" exact to="/Tasks">
-							Tasks
-						</NavLink>
-					</div>
-					<div className="NavItem">
 						<NavLink activeClassName="Nav-active" exact to="/Teams">
 							Teams
 						</NavLink>
@@ -33,7 +22,11 @@ export default class Navigation extends Component {
 							Employees
 						</NavLink>
 					</div>
-					<div className="Nav-title">Work From Home</div>
+					<div className="Nav-title">
+						<NavLink activeClassName="Nav-active" exact to="/">
+							Work From Home
+						</NavLink>
+					</div>
 				</div>
 				<hr className="Nav-divider" />
 			</div>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './List.css';
 
 export default class TaskItem extends Component {
 	render() {

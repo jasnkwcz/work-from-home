@@ -12,7 +12,7 @@
     "express": "latest",
     "express-generator": "^4.16.1",
     "g": "^2.0.1",
-    "mysql": "latest",
+    "mysql": "^2.18.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",

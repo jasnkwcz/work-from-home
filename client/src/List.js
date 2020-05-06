@@ -20,6 +20,7 @@ export default class List extends Component {
 	componentDidUpdate() {
 		console.log('Component updated');
 	}
+
 	render() {
 		return (
 			<div className="ListContainer">
@@ -36,6 +37,8 @@ export default class List extends Component {
 								return <TeamItem />;
 							case 'Employees':
 								return <EmployeeItem />;
+							default:
+								return <ProjectItem projectName={item.ProjectName} team={item.Team} />;
 						}
 					})}
 				</ul>
