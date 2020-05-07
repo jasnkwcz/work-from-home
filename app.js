@@ -5,10 +5,11 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require("cors");
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var testAPIRouter = require('./routes/testAPI');
-var projectRouter = require('./routes/projects')
+var indexRouter = require('./api/index');
+var usersRouter = require('./api/users');
+var testAPIRouter = require('./api/testAPI');
+var projectRouter = require('./api/projects');
+var selectRouter = require('./api/select');
 
 var app = express();
 
@@ -25,6 +26,7 @@ app.use(cookieParser());
 app.use('/users', usersRouter);
 app.use('/testAPI', testAPIRouter);
 app.use('/Projects', projectRouter);
+app.use('/select', selectRouter);
 app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 
