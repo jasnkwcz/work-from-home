@@ -6,6 +6,8 @@ import TaskItem from './TaskItem';
 import TeamItem from './TeamItem';
 import EmployeeItem from './EmployeeItem';
 
+const axios = require('axios');
+
 export default class List extends Component {
 	static defaultProps = {
 		displayList: 'Projects', //default display is projects
@@ -18,6 +20,10 @@ export default class List extends Component {
 
 	//use componentDidUpdate to make API calls to get new data on nav click - component only mounts on page load, updates on nav click
 	componentDidUpdate() {
+        axios.get('/Projects').then(function (response)
+            {
+                console.log(response);
+            });
 		console.log('Component updated');
 	}
 
