@@ -56,20 +56,19 @@ router.get("/projects/:id", function(req, res, next){
 
 })
 
-router.get("/:entity/:name", function(req, res, next){
+router.get("/:entity/:description", function(req, res, next){
     let entity = req.params.entity;
-    let name = req.params.name;
+    let description = req.params.description;
     connection.connect(function(err)
         {
             console.log("Connected to database");
-            connection.query(`SELECT * FROM ${entity} WHERE name = ?`,
-                ("app"), function (err, result)
+            connection.query(`SELECT * FROM ${entity} WHERE description LIKE ?`,
+                (`%{description}%`), function (err, result)
                 {
                     if (err) throw err;
                     res.send(result);
                 });
         });
-
 });
 
 router.get("/:entity/:id", function(req, res, next){
