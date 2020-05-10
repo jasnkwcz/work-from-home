@@ -22,6 +22,7 @@ var connection = require("../dbconfig.js");
 //router.get("/employees", function(req, res, next)){}
 
 router.get("/:entity", function(req, res, next){
+
     let entity = req.params.entity;
     connection.connect(function(err)
         {
@@ -35,13 +36,52 @@ router.get("/:entity", function(req, res, next){
         });
 });
 
+router.get("/projects/:id", function(req, res, next){
+    let id = req.params.id;
+    connection.connect(function(err)
+        {
+            console.log("Connected to database");
+            connection.query(`SELECT *
+                FROM projects
+                JOIN features ON (projects.id = features.project_id)
+                JOIN tasks ON (features.id = tasks.for_feature)
+                WHERE projects.id=${id}`,
+            function (err, result)
+                {
+                    if (err) throw err;
+                    res.send(result);
+                });
+        });
+
+
+})
+
+router.get("/:entity/:name", function(req, res, next){
+    let entity = req.params.entity;
+    let name = req.params.name;
+    connection.connect(function(err)
+        {
+            console.log("Connected to database");
+            connection.query(`SELECT * FROM ${entity} WHERE name = ?`,
+                ("app"), function (err, result)
+                {
+                    if (err) throw err;
+                    res.send(result);
+                });
+        });
+
+});
+
 router.get("/:entity/:id", function(req, res, next){
     let entity = req.params.entity;
     let id = req.params.id;
     connection.connect(function(err)
         {
             console.log("Connected to database");
-            connection.query(`SELECT * FROM ${entity} WHERE id=${id}`,
+            connection.query(`SELECT *
+                FROM ${entity}
+                WHERE ${entity}.id=${id}`,
+
             function (err, result)
                 {
                     if (err) throw err;
@@ -50,4 +90,5 @@ router.get("/:entity/:id", function(req, res, next){
         });
 
 });
+
 module.exports = router;
