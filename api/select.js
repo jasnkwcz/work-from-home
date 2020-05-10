@@ -54,16 +54,16 @@ router.get("/projects/:id", function(req, res, next){
         });
 
 
-})
+});
 
-router.get("/:entity/:description", function(req, res, next){
-    let entity = req.params.entity;
+router.get("/projects/search/:description", function(req, res, next){
     let description = req.params.description;
+    description = '%' + description + '%';
     console.log(description);
     connection.connect(function(err)
         {
             console.log("Connected to database");
-            connection.query((`SELECT * FROM ${entity} WHERE description LIKE` + "'" + description + "'"), function (err, result)
+            connection.query(("SELECT * FROM projects WHERE description LIKE " + "'" + description + "'" ), function (err, result)
                 {
                     if (err) throw err;
                     res.send(result);
