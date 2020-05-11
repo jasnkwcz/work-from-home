@@ -202,6 +202,27 @@ export default class WorkFromHome extends Component {
 							</div>
 						)}
 					/>
+					<Route
+						path="/Projects/Features/:ProjectName"
+						render={(routeProps) => (
+							<div>
+								<p>
+									Displaying features being implemented on project{' '}
+									{routeProps.match.params.ProjectName}
+								</p>
+								<List displayList="Features" project={routeProps.match.params.ProjectName} />
+							</div>
+						)}
+					/>
+					<Route
+						path="/Features/:FeatureName/Tasks"
+						render={(routeProps) => (
+							<div>
+								<p>Displaying tasks for feature {routeProps.match.params.FeatureName}</p>
+								<List displayList="Tasks" feature={routeProps.match.params.FeatureName} />
+							</div>
+						)}
+					/>
 				</Switch>
 				<div />
 			</div>
