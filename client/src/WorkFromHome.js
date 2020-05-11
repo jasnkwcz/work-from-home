@@ -52,8 +52,13 @@ export default class WorkFromHome extends Component {
 									Start a new project
 								</Link>
 								<form>
-									<label>Search projects by name:</label>
-									<input type="text" />
+									<label>Search projects by </label>
+									<select>
+										<option value="ID">ID</option>
+										<option value="Description">Description</option>
+										<option value="Team">Team</option>
+									</select>
+									<input type="search" />
 									<button>search</button>
 								</form>
 								<List displayList="Projects" />
@@ -137,6 +142,17 @@ export default class WorkFromHome extends Component {
 						path="/Projects/Display/:ProjectName"
 						render={(routeProps) => (
 							<div>Here we will display project details for {routeProps.match.params.ProjectName}</div>
+						)}
+					/>
+					<Route
+						path="/Projects/AssignTeam/:ProjectName"
+						render={(routeProps) => (
+							<div>
+								<p>Which team would you like to assign to {routeProps.match.params.ProjectName}? </p>
+								<select>
+									<option value="teamName">A team would go here</option>
+								</select>
+							</div>
 						)}
 					/>
 					<Route

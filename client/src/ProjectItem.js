@@ -50,6 +50,7 @@ export default class ProjectItem extends Component {
 		const viewUrl = `/Projects/Display/${this.props.projectName}`;
 		const editUrl = `/Projects/Edit/${this.props.projectName}`;
 		const deleteUrl = `/Projects/Delete/${this.props.projectName}`;
+		const assignUrl = `/Projects/AssignTeam/${this.props.projectName}`;
 		return (
 			<div>
 				<li className="ListItem">
@@ -71,6 +72,11 @@ export default class ProjectItem extends Component {
 					<Link to={deleteUrl}>
 						<button>Delete</button>
 					</Link>
+					<Link to={assignUrl}>
+						<button>Assign a new team to this project</button>
+					</Link>
+					<label>Mark this project complete?</label>
+					<input type="checkbox" />
 				</li>
 			</div>
 		);
