@@ -52,8 +52,13 @@ export default class WorkFromHome extends Component {
 									Start a new project
 								</Link>
 								<form>
-									<label>Search projects by name:</label>
-									<input type="text" />
+									<label>Search projects by </label>
+									<select>
+										<option value="ID">ID</option>
+										<option value="Description">Description</option>
+										<option value="Team">Team</option>
+									</select>
+									<input type="search" />
 									<button>search</button>
 								</form>
 								<List displayList="Projects" />
@@ -140,6 +145,17 @@ export default class WorkFromHome extends Component {
 						)}
 					/>
 					<Route
+						path="/Projects/AssignTeam/:ProjectName"
+						render={(routeProps) => (
+							<div>
+								<p>Which team would you like to assign to {routeProps.match.params.ProjectName}? </p>
+								<select>
+									<option value="teamName">A team would go here</option>
+								</select>
+							</div>
+						)}
+					/>
+					<Route
 						path="/Projects/Edit/:ProjectName"
 						render={(routeProps) => (
 							<div>
@@ -183,6 +199,27 @@ export default class WorkFromHome extends Component {
 									<button>Yes</button>
 									<button>No</button>
 								</div>
+							</div>
+						)}
+					/>
+					<Route
+						path="/Projects/Features/:ProjectName"
+						render={(routeProps) => (
+							<div>
+								<p>
+									Displaying features being implemented on project{' '}
+									{routeProps.match.params.ProjectName}
+								</p>
+								<List displayList="Features" project={routeProps.match.params.ProjectName} />
+							</div>
+						)}
+					/>
+					<Route
+						path="/Features/:FeatureName/Tasks"
+						render={(routeProps) => (
+							<div>
+								<p>Displaying tasks for feature {routeProps.match.params.FeatureName}</p>
+								<List displayList="Tasks" feature={routeProps.match.params.FeatureName} />
 							</div>
 						)}
 					/>

@@ -9,6 +9,8 @@ export default class EmployeeItem extends Component {
 					<div>Here is an employee</div>
 					<div>This is the team they're on</div>
 					<div>Maybe a list of the tasks they're currently working on can go in here too</div>
+					<button>Edit employee information</button>
+					<button>Remove employee</button>
 				</li>
 			</div>
 		);
