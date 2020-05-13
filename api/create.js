@@ -62,5 +62,48 @@ router.post("/employees/", function(req, res, next){
         });
 });
 
+router.post("/features/", function(req, res, next){
+    connection.connect(function(err)
+        {
+            connection.query('INSERT INTO features VALUES (?, ?, ?, ?, ?, ?)',
+                [
+                    null,
+                    req.body.project_id,
+                    req.body.description,
+                    req.body.type,
+                    req.body.priority,
+                    req.body.completed
+                ],
+            function(err, result)
+                {
+                    if (err) throw err;
+                    res.send(result);
+                });
+        });
+});
+
+router.post("/tasks/", function(req, res, next){
+    connection.connect(function(err)
+        {
+            connection.query('INSERT INTO tasks VALUES (?, ?, ?, ?, ?, ?)',
+                [
+                    null,
+                    req.body.description,
+                    req.body.due_date,
+                    req.body.completed,
+                    req.body.for_feature,
+                    req.body.assigned_to
+                ],
+            function(err, result)
+                {
+                    if (err) throw err;
+                    res.send(result);
+                });
+        });
+});
+
+
+
+
 module.exports = router;
 
