@@ -6,6 +6,9 @@ var logger = require('morgan');
 var cors = require("cors");
 
 var selectRouter = require('./api/select');
+var createRouter = require('./api/create');
+var updateRouter = require('./api/update');
+var deleteRouter = require('./api/delete');
 
 var app = express();
 
@@ -20,6 +23,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/select', selectRouter);
+app.use('/create', createRouter);
+app.use('/update', updateRouter);
+app.use('/delete', deleteRouter);
 app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 
