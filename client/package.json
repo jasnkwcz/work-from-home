@@ -5,19 +5,26 @@
   "dependencies": {
     "-": "0.0.1",
     "@emotion/core": "^10.0.28",
+    "@popperjs/core": "^2.4.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
+    "bootstrap": "^4.5.0",
     "express": "latest",
     "express-generator": "^4.16.1",
     "g": "^2.0.1",
+    "jQuery": "^1.7.4",
+    "jquery": "^3.5.1",
     "mysql": "^2.18.1",
+    "node-jquery": "^0.1.0",
+    "popper.js": "^1.16.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
-    "serve": "latest"
+    "serve": "latest",
+    "typescript": "^3.9.2"
   },
   "scripts": {
     "start": "react-scripts start",
