@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import EmployeeForm from './EmployeeForm';
 
 export default class Employees extends Component {
 	constructor(props) {
@@ -16,14 +17,23 @@ export default class Employees extends Component {
 				this.setState({ list: employeeList });
 			});
 	}
+	handleSubmit = async (evt) => {
+		evt.preventDefault();
+		await axios
+			.post(`http://workfromhome-env-1.eba-mwb43dpw.us-east-1.elasticbeanstalk.com/create/employees`, this.state)
+			.then((res) => {
+				alert(res);
+				console.log(res);
+			})
+			.catch(function(error) {
+				console.log(error);
+			});
+	};
 	render() {
 		return (
 			<div className="container">
-				<div className="col-md-3 ml-auto row">
-					<Link exact to="/employees/add" className="btn btn-primary col">
-						Add a new employee
-					</Link>
-				</div>
+				<EmployeeForm handleSubmit={this.handleSubmit} />
+				<hr class="my-4" />
 				{this.state.list.map((item) => {
 					return (
 						<div className="card">

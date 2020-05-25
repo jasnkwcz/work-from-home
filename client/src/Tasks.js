@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import TaskForm from './TaskForm';
 
 export default class Tasks extends Component {
 	constructor(props) {
@@ -17,12 +18,14 @@ export default class Tasks extends Component {
 	}
 	render() {
 		return (
-			<div>
+			<div className="container">
+				<TaskForm />
+				<hr class="my-4" />
 				{this.state.list.map((item) => {
 					return (
 						<div className="card">
 							<div className="card-body">
-								<h5 className="card-title">Task::{item.id}</h5>
+								<h5 className="card-title">Task:{item.id}</h5>
 								<p className="card-text">Description: {item.description}</p>
 								<p className="card-text">Due date:{item.due_date}</p>
 								<p className="card-text">For feature:{item.for_feature}</p>

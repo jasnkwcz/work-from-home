@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import FeatureForm from './FeatureForm';
 
 export default class Features extends Component {
 	constructor(props) {
@@ -18,7 +19,9 @@ export default class Features extends Component {
 	}
 	render() {
 		return (
-			<div>
+			<div className="container">
+				<FeatureForm />
+				<hr class="my-4" />
 				{this.state.list.map((item) => {
 					return (
 						<div className="card">

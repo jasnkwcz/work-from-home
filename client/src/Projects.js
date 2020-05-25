@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import ProjectForm from './ProjectForm';
 
 export default class Projects extends Component {
 	constructor(props) {
@@ -18,11 +19,25 @@ export default class Projects extends Component {
 			});
 	}
 
+	handleSubmit = async (evt) => {
+		evt.preventDeafult();
+		await axios
+			.post(`http://workfromhome-env-1.eba-mwb43dpw.us-east-1.elasticbeanstalk.com/create/projects`, this.state)
+			.then((res) => {
+				console.log(res);
+			})
+			.catch(function(error) {
+				console.log(error);
+			});
+	};
+
 	render() {
 		return (
 			<div className="container">
+				<ProjectForm handleSubmit={this.handleSubmit} />
+				<hr class="my-4" />
 				<div className="row">
-					<div className="input-group input-group-md col-md-6">
+					<div className="input-group input-group-md col">
 						<div className="input-group-prepend">
 							<select className="custom-select">
 								<option selected value="id">
@@ -42,13 +57,10 @@ export default class Projects extends Component {
 							Go!
 						</Link>
 					</div>
-					<div className="col-md-3" />
-					<div className="col-md-3">
-						<Link exact to="/projects/add" className="btn btn-primary col">
-							Create a new project
-						</Link>
-					</div>
 				</div>
+				<div class="my-4" />
+
+				<div className="col-md-3" />
 
 				{this.state.list.map((item) => {
 					return (
