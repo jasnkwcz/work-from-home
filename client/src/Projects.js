@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import ProjectForm from './ProjectForm';
+import ProjectSearch from './ProjectSearch';
 
 export default class Projects extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { list: [] };
 		this.addItem = this.addItem.bind(this);
+		this.searchProject = this.searchProject.bind(this);
 	}
 	async componentDidMount() {
 		console.log('Project component mounted');
@@ -26,33 +28,18 @@ export default class Projects extends Component {
 		}));
 	}
 
+	searchProject(item) {
+		this.setState((state) => ({
+			list: item
+		}));
+	}
+
 	render() {
 		return (
 			<div className="container">
 				<ProjectForm addItem={this.addItem} />
 				<hr class="my-4" />
-				<div className="row">
-					<div className="input-group input-group-md col">
-						<div className="input-group-prepend">
-							<select className="custom-select">
-								<option selected value="id">
-									Search projects by ID
-								</option>
-								<option value="description">Search projects by description</option>
-							</select>
-						</div>
-						<input
-							type="text"
-							className="form-control"
-							aria-label="Large"
-							aria-describedby="inputGroup-sizing-sm"
-							placeholder="Search projects"
-						/>
-						<Link exact to="" className="btn btn-primary">
-							Go!
-						</Link>
-					</div>
-				</div>
+				<ProjectSearch searchProject={this.searchProject} />
 				<div class="my-4" />
 
 				<div className="col-md-3" />
