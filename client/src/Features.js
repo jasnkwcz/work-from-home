@@ -7,6 +7,7 @@ export default class Features extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { list: [] };
+		this.addItem = this.addItem.bind(this);
 	}
 	async componentDidMount() {
 		await axios
@@ -17,10 +18,17 @@ export default class Features extends Component {
 				this.setState({ list: projectList });
 			});
 	}
+
+	addItem(items) {
+		this.setState((state) => ({
+			list: items
+		}));
+	}
+
 	render() {
 		return (
 			<div className="container">
-				<FeatureForm />
+				<FeatureForm addItem={this.addItem} />
 				<hr class="my-4" />
 				{this.state.list.map((item) => {
 					return (

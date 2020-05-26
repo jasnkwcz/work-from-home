@@ -7,6 +7,7 @@ export default class Teams extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { list: [] };
+		this.addItem = this.addItem.bind(this);
 	}
 	async componentDidMount() {
 		await axios
@@ -17,22 +18,17 @@ export default class Teams extends Component {
 				this.setState({ list: teamList });
 			});
 	}
-	handleSubmit = async (evt) => {
-		evt.preventDefault();
-		await axios
-			.post(`http://workfromhome-env-1.eba-mwb43dpw.us-east-1.elasticbeanstalk.com/create/teams`, this.state)
-			.then((res) => {
-				alert('New team submitted!');
-				console.log(res);
-			})
-			.catch(function(error) {
-				console.log(error);
-			});
-	};
+
+	addItem(items) {
+		this.setState((state) => ({
+			list: items
+		}));
+	}
+
 	render() {
 		return (
 			<div className="container">
-				<TeamForm handleSubmit={this.handleSubmit} />
+				<TeamForm addItem={this.addItem} />
 				<hr class="my-4" />
 				{this.state.list.map((item) => {
 					return (

@@ -18,11 +18,31 @@ export default class TeamForm extends Component {
 		});
 	};
 
+	handleSubmit = async (evt) => {
+		evt.preventDefault();
+		await axios
+			.post(`http://workfromhome-env-1.eba-mwb43dpw.us-east-1.elasticbeanstalk.com/create/teams`, this.state)
+			.then((res) => {
+				console.log(res);
+			})
+			.catch(function(error) {
+				console.log(error);
+			});
+		await axios
+			.get(`http://workfromhome-env-1.eba-mwb43dpw.us-east-1.elasticbeanstalk.com/select/teams`)
+			.then((res) => {
+				console.log(res);
+				const projectList = res.data;
+				this.setState({ list: projectList });
+			});
+		this.props.addItem(this.state.list);
+	};
+
 	render() {
 		return (
 			<div className="container">
 				<h1>Enter a new team:</h1>
-				<form>
+				<form onSubmit={this.handleSubmit}>
 					<div className="row">
 						<div className="form-group col">
 							<label htmlFor="team_lead">Team lead ID:</label>

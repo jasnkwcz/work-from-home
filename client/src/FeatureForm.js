@@ -20,22 +20,30 @@ export default class FeatureForm extends Component {
 	};
 
 	handleSubmit = async (evt) => {
+		evt.preventDefault();
 		await axios
 			.post(`http://workfromhome-env-1.eba-mwb43dpw.us-east-1.elasticbeanstalk.com/create/features`, this.state)
 			.then((res) => {
-				alert(res);
 				console.log(res);
 			})
 			.catch(function(error) {
 				console.log(error);
 			});
+		await axios
+			.get(`http://workfromhome-env-1.eba-mwb43dpw.us-east-1.elasticbeanstalk.com/select/features`)
+			.then((res) => {
+				console.log(res);
+				const projectList = res.data;
+				this.setState({ list: projectList });
+			});
+		this.props.addItem(this.state.list);
 	};
 
 	render() {
 		return (
 			<div className="container">
 				<h1>Enter a new feature:</h1>
-				<form>
+				<form onSubmit={this.handleSubmit}>
 					<div class="row">
 						<div className="form-group col">
 							<label htmlFor="project_id">Add to project:</label>

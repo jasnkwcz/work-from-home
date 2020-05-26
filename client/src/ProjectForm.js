@@ -18,11 +18,31 @@ export default class ProjectForm extends Component {
 		});
 	};
 
+	handleSubmit = async (evt) => {
+		evt.preventDefault();
+		await axios
+			.post(`http://workfromhome-env-1.eba-mwb43dpw.us-east-1.elasticbeanstalk.com/create/projects`, this.state)
+			.then((res) => {
+				console.log(res);
+			})
+			.catch(function(error) {
+				console.log(error);
+			});
+		await axios
+			.get(`http://workfromhome-env-1.eba-mwb43dpw.us-east-1.elasticbeanstalk.com/select/projects`)
+			.then((res) => {
+				console.log(res);
+				const projectList = res.data;
+				this.setState({ list: projectList });
+			});
+		this.props.addItem(this.state.list);
+	};
+
 	render() {
 		return (
 			<div className="container">
 				<h1>Enter a new project:</h1>
-				<form handleSubmit={this.props.handleSubmit}>
+				<form onSubmit={this.handleSubmit}>
 					<div className="row">
 						<div className="form-group col">
 							<label htmlFor="description">Project description:</label>

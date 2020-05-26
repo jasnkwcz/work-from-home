@@ -6,6 +6,7 @@ export default class Tasks extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { list: [] };
+		this.addItem = this.addItem.bind(this);
 	}
 	async componentDidMount() {
 		await axios
@@ -16,10 +17,17 @@ export default class Tasks extends Component {
 				this.setState({ list: teamList });
 			});
 	}
+
+	addItem(items) {
+		this.setState((state) => ({
+			list: items
+		}));
+	}
+
 	render() {
 		return (
 			<div className="container">
-				<TaskForm />
+				<TaskForm addItem={this.addItem} />
 				<hr class="my-4" />
 				{this.state.list.map((item) => {
 					return (

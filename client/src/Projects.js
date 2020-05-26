@@ -7,6 +7,7 @@ export default class Projects extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { list: [] };
+		this.addItem = this.addItem.bind(this);
 	}
 	async componentDidMount() {
 		console.log('Project component mounted');
@@ -19,22 +20,16 @@ export default class Projects extends Component {
 			});
 	}
 
-	handleSubmit = async (evt) => {
-		evt.preventDeafult();
-		await axios
-			.post(`http://workfromhome-env-1.eba-mwb43dpw.us-east-1.elasticbeanstalk.com/create/projects`, this.state)
-			.then((res) => {
-				console.log(res);
-			})
-			.catch(function(error) {
-				console.log(error);
-			});
-	};
+	addItem(items) {
+		this.setState((state) => ({
+			list: items
+		}));
+	}
 
 	render() {
 		return (
 			<div className="container">
-				<ProjectForm handleSubmit={this.handleSubmit} />
+				<ProjectForm addItem={this.addItem} />
 				<hr class="my-4" />
 				<div className="row">
 					<div className="input-group input-group-md col">
