@@ -74,8 +74,8 @@ export default class FeatureForm extends Component {
 							<select
 								type="select"
 								className="form-control"
-								id="is_full"
-								name="is_full"
+								id="priority"
+								name="priority"
 								onChange={this.handleChange}
 							>
 								<option selected value="1">

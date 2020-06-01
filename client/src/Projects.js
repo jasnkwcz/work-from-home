@@ -12,7 +12,6 @@ export default class Projects extends Component {
 		this.searchProject = this.searchProject.bind(this);
 	}
 	async componentDidMount() {
-		console.log('Project component mounted');
 		await axios
 			.get(`http://workfromhome-env-1.eba-mwb43dpw.us-east-1.elasticbeanstalk.com/select/projects`)
 			.then((res) => {
@@ -45,13 +44,16 @@ export default class Projects extends Component {
 				<div className="col-md-3" />
 
 				{this.state.list.map((item) => {
+					const featureUrl = `/projects/${item.id}`;
 					return (
 						<div className="card">
 							<div className="card-body">
 								<h5 className="card-title">Project ID:{item.id}</h5>
 								<p className="card-text">Description: {item.description}</p>
 								<p className="card-text">Assigned Team:{item.assigned_team}</p>
-								<Link className="btn btn-primary">See project features</Link>
+								<Link exact to={featureUrl} className="btn btn-primary">
+									See project features
+								</Link>
 							</div>
 						</div>
 					);

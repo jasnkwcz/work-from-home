@@ -6,7 +6,7 @@ export default class ProjectSearch extends Component {
 		super(props);
 		this.state = {
 			searchText: '',
-			searchBy: '',
+			searchBy: 'id',
 			item: []
 		};
 	}
@@ -19,7 +19,6 @@ export default class ProjectSearch extends Component {
 	handleSearch = async (evt) => {
 		evt.preventDefault();
 		if (this.state.searchBy === 'id') {
-			console.log('search by ID');
 			await axios
 				.get(
 					`http://workfromhome-env-1.eba-mwb43dpw.us-east-1.elasticbeanstalk.com/select/projects/` +
@@ -31,7 +30,6 @@ export default class ProjectSearch extends Component {
 					this.setState({ item: projectList });
 				});
 		} else if (this.state.searchBy === 'description') {
-			console.log('search by description');
 			await axios
 				.get(
 					`http://workfromhome-env-1.eba-mwb43dpw.us-east-1.elasticbeanstalk.com/select/projects/search/` +

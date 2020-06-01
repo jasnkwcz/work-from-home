@@ -90,14 +90,10 @@ export default class TeamForm extends Component {
 								<option value="0">No</option>
 							</select>
 						</div>
-						<button
-							type="submit"
-							className="btn btn-primary col-sm-2 my-1"
-							onClick={this.props.handleSubmit}
-						>
-							Create team
-						</button>
 					</div>
+					<button type="submit" className="btn btn-primary col-sm-2 my-1" onClick={this.props.handleSubmit}>
+						Create team
+					</button>
 				</form>
 			</div>
 		);

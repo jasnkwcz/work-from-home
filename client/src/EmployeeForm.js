@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-export default class TeamForm extends Component {
+export default class EmployeeForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -24,6 +24,8 @@ export default class TeamForm extends Component {
 		await axios
 			.post(`http://workfromhome-env-1.eba-mwb43dpw.us-east-1.elasticbeanstalk.com/create/employees`, this.state)
 			.then((res) => {
+				console.log('Sent employee form data');
+				console.log(this.state);
 				console.log(res);
 			})
 			.catch(function(error) {
