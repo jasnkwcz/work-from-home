@@ -16,7 +16,11 @@ export default class WorkFromHome extends Component {
 				<Switch>
 					<Route exact path="/" render={() => <Home />} />
 					<Route exact path="/projects" render={() => <Projects />} />
-					<Route exact path="/projects/:id" render={() => <Projects />} />
+					<Route
+						exact
+						path="/projects/:id"
+						render={(routeProps) => <Features id={routeProps.match.params.id} />}
+					/>
 					<Route exact path="/teams" render={() => <Teams />} />
 					<Route exact path="/employees" render={() => <Employees />} />
 					<Route exact path="/tasks" render={() => <Tasks />} />

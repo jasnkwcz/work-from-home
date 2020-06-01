@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export default class ProjectForm extends Component {
@@ -69,7 +68,7 @@ export default class ProjectForm extends Component {
 						</div>
 					</div>
 
-					<button type="submit" className="btn btn-primary" onClick={this.props.handleSubmit}>
+					<button type="submit" className="btn btn-primary">
 						Submit project
 					</button>
 				</form>

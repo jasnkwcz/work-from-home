@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import ProjectForm from './ProjectForm';
 import ProjectSearch from './ProjectSearch';
+import DeleteButton from './DeleteButton';
 
 export default class Projects extends Component {
 	constructor(props) {
@@ -10,6 +11,7 @@ export default class Projects extends Component {
 		this.state = { list: [] };
 		this.addItem = this.addItem.bind(this);
 		this.searchProject = this.searchProject.bind(this);
+		this.deleteProject = this.deleteProject.bind(this);
 	}
 	async componentDidMount() {
 		await axios
@@ -30,6 +32,12 @@ export default class Projects extends Component {
 	searchProject(item) {
 		this.setState((state) => ({
 			list: item
+		}));
+	}
+
+	deleteProject(items) {
+		this.setState((state) => ({
+			list: items
 		}));
 	}
 
@@ -54,6 +62,7 @@ export default class Projects extends Component {
 								<Link exact to={featureUrl} className="btn btn-primary">
 									See project features
 								</Link>
+								<DeleteButton id={item.id} deleteProject={this.deleteProject} />
 							</div>
 						</div>
 					);

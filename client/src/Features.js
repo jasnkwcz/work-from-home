@@ -11,7 +11,9 @@ export default class Features extends Component {
 	}
 	async componentDidMount() {
 		await axios
-			.get(`http://workfromhome-env-1.eba-mwb43dpw.us-east-1.elasticbeanstalk.com/select/features`)
+			.get(
+				`http://workfromhome-env-1.eba-mwb43dpw.us-east-1.elasticbeanstalk.com/select/projects/${this.props.id}`
+			)
 			.then((res) => {
 				console.log(res);
 				const projectList = res.data;
@@ -30,16 +32,17 @@ export default class Features extends Component {
 			<div className="container">
 				<FeatureForm addItem={this.addItem} />
 				<hr class="my-4" />
+				<h2>Displaying features for project {this.props.id}:</h2>
 				{this.state.list.map((item) => {
 					return (
 						<div className="card">
 							<div className="card-body">
-								<h5 className="card-title">Feature ID:{item.id}</h5>
-								<p className="card-text">For project: {item.project_id}</p>
 								<p className="card-text">Description: {item.description}</p>
-								<p className="card-text">Front/back end: {item.type}</p>
+								<p className="card-text">
+									Front/back end: {item.type === 0 ? 'front end' : 'back end'}
+								</p>
 								<p className="card-text">Priority:: {item.priority}</p>
-								<p className="card-text">Completed? {item.completed}</p>
+								<p className="card-text">Completed? {item.completed == false ? 'no' : 'yes'}</p>
 								<Link class="btn btn-primary">See tasks for this feature</Link>
 							</div>
 						</div>
