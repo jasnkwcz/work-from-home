@@ -51,6 +51,20 @@ router.get("/projects/search/:description", function(req, res, next){
         });
 });
 
+router.get("/projects/search/id/:id", function(req, res, next){
+    let id = req.params.id;
+    console.log(id);
+    connection.connect(function(err)
+        {
+            console.log("Connected to database");
+            connection.query((`SELECT * FROM projects WHERE id=${id}`), function (err, result)
+                {
+                    if (err) throw err;
+                    res.send(result);
+                });
+        });
+});
+
 router.get("/:entity/:id", function(req, res, next){
     let entity = req.params.entity;
     let id = req.params.id;
