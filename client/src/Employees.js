@@ -49,9 +49,12 @@ export default class Employees extends Component {
 								<h5 className="card-title">
 									Name:{item.first_name} {item.last_name}
 								</h5>
-								<p className="card-text">TimeZone: {item.time_zone}</p>
-								<p className="card-text">Seniority:{item.seniority}</p>
-								<p className="card-text">Team:{item.team_id}</p>
+								<p className="card-text">
+									TimeZone: UTC {item.time_zone > 0 ? '+' : '-'}
+									{Math.abs(item.time_zone)}
+								</p>
+								<p className="card-text">Seniority: {item.seniority}</p>
+								<p className="card-text">Team: {item.team_id}</p>
 								<Link exact to="/employees" class="btn btn-primary">
 									Edit information
 								</Link>
