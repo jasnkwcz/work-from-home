@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export default class TaskForm extends Component {
@@ -83,8 +82,8 @@ export default class TaskForm extends Component {
 								name="completed"
 								onChange={this.handleChange}
 							>
-								<option value="false">No</option>
-								<option value="true">Yes</option>
+								<option value="0">No</option>
+								<option value="1">Yes</option>
 							</select>
 						</div>
 					</div>
