@@ -34,10 +34,10 @@ export default class Teams extends Component {
 					return (
 						<div className="card">
 							<div className="card-body">
-								<h5 className="card-title">Team ID:{item.id}</h5>
+								<h5 className="card-title">Team ID: {item.id}</h5>
 								<p className="card-text">Team Lead: {item.team_lead}</p>
-								<p className="card-text">Assigned Project:{item.assigned_project}</p>
-								<p className="card-text">Team Capacity:{item.capacity}</p>
+								<p className="card-text">Assigned Project: {item.assigned_project}</p>
+								<p className="card-text">Team Capacity: {item.capacity}</p>
 								<p className="card-text">Full?: {item.is_full === -1 ? 'Yes' : 'No'}</p>
 								<Link exact to="/teams" class="btn btn-primary">
 									View Team Members

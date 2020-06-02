@@ -56,9 +56,9 @@ export default class Projects extends Component {
 					return (
 						<div className="card">
 							<div className="card-body">
-								<h5 className="card-title">Project ID:{item.id}</h5>
+								<h5 className="card-title">Project ID: {item.id}</h5>
 								<p className="card-text">Description: {item.description}</p>
-								<p className="card-text">Assigned Team:{item.assigned_team}</p>
+								<p className="card-text">Assigned Team: {item.assigned_team}</p>
 								<Link exact to={featureUrl} className="btn btn-primary">
 									See project features
 								</Link>

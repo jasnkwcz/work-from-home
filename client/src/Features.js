@@ -41,9 +41,11 @@ export default class Features extends Component {
 								<p className="card-text">
 									Front/back end: {item.type === 0 ? 'front end' : 'back end'}
 								</p>
-								<p className="card-text">Priority:: {item.priority}</p>
-								<p className="card-text">Completed? {item.completed === false ? 'no' : 'yes'}</p>
-								<Link class="btn btn-primary">See tasks for this feature</Link>
+								<p className="card-text">Priority: {item.priority}</p>
+								<p className="card-text">Completed? {item.completed === false ? 'No' : 'Yes'}</p>
+								<Link exact to={`/tasks/${item.id}`} class="btn btn-primary">
+									See tasks for this feature
+								</Link>
 							</div>
 						</div>
 					);
