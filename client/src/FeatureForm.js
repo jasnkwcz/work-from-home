@@ -30,7 +30,9 @@ export default class FeatureForm extends Component {
 				console.log(error);
 			});
 		await axios
-			.get(`http://workfromhome-env-1.eba-mwb43dpw.us-east-1.elasticbeanstalk.com/select/features`)
+			.get(
+				`http://workfromhome-env-1.eba-mwb43dpw.us-east-1.elasticbeanstalk.com/select/projects/${this.props.id}`
+			)
 			.then((res) => {
 				console.log(res);
 				const projectList = res.data;

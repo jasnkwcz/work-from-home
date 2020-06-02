@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import TaskForm from './TaskForm';
+import CompleteButton from './CompleteButton';
 
 export default class Tasks extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { list: [] };
 		this.addItem = this.addItem.bind(this);
+		this.completeTask = this.completeTask.bind(this);
 	}
 	async componentDidMount() {
 		await axios
@@ -19,6 +21,12 @@ export default class Tasks extends Component {
 	}
 
 	addItem(items) {
+		this.setState((state) => ({
+			list: items
+		}));
+	}
+
+	completeTask(items) {
 		this.setState((state) => ({
 			list: items
 		}));
@@ -38,10 +46,10 @@ export default class Tasks extends Component {
 								<p className="card-text">Due date:{item.due_date}</p>
 								<p className="card-text">For feature:{item.for_feature}</p>
 								<p className="card-text">Assigned employee:{item.assigned_to}</p>
-								<p className="card-text">Completed? {item.completed}</p>
-								<a href="#" class="btn btn-primary">
-									Mark this complete
-								</a>
+								<p className="card-text">Completed? {item.completed === 0 ? 'No' : 'Yes'}</p>
+								<CompleteButton completeTask={this.completeTask} id={item.id}>
+									Mark complete
+								</CompleteButton>
 							</div>
 						</div>
 					);

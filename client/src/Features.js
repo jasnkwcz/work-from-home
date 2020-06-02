@@ -30,7 +30,7 @@ export default class Features extends Component {
 	render() {
 		return (
 			<div className="container">
-				<FeatureForm addItem={this.addItem} />
+				<FeatureForm addItem={this.addItem} id={this.props.id} />
 				<hr class="my-4" />
 				<h2>Displaying features for project {this.props.id}:</h2>
 				{this.state.list.map((item) => {
@@ -42,7 +42,7 @@ export default class Features extends Component {
 									Front/back end: {item.type === 0 ? 'front end' : 'back end'}
 								</p>
 								<p className="card-text">Priority:: {item.priority}</p>
-								<p className="card-text">Completed? {item.completed == false ? 'no' : 'yes'}</p>
+								<p className="card-text">Completed? {item.completed === false ? 'no' : 'yes'}</p>
 								<Link class="btn btn-primary">See tasks for this feature</Link>
 							</div>
 						</div>
