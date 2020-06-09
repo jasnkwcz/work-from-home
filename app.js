@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require("cors");
+var history = require('connect-history-api-fallback');
 
 var selectRouter = require('./api/select');
 var createRouter = require('./api/create');
@@ -20,6 +21,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(history());
 
 app.use('/select', selectRouter);
 app.use('/create', createRouter);
