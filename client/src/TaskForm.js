@@ -52,6 +52,7 @@ export default class TaskForm extends Component {
 								id="due_date"
 								name="due_date"
 								onChange={this.handleChange}
+								required
 							/>
 						</div>
 						<div className="form-group col">
@@ -62,6 +63,7 @@ export default class TaskForm extends Component {
 								id="for_feature"
 								name="for_feature"
 								onChange={this.handleChange}
+								required
 							/>
 						</div>
 						<div className="form-group col">
@@ -72,6 +74,7 @@ export default class TaskForm extends Component {
 								id="assigned_to"
 								name="assigned_to"
 								onChange={this.handleChange}
+								required
 							/>
 						</div>
 						<div className="form-group col">
@@ -81,6 +84,7 @@ export default class TaskForm extends Component {
 								id="completed"
 								name="completed"
 								onChange={this.handleChange}
+								required
 							>
 								<option value="0">No</option>
 								<option value="1">Yes</option>
@@ -95,6 +99,7 @@ export default class TaskForm extends Component {
 							id="description"
 							name="description"
 							onChange={this.handleChange}
+							required
 						/>
 					</div>
 

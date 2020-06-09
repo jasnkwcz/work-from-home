@@ -53,6 +53,7 @@ export default class ProjectForm extends Component {
 								name="description"
 								value={this.state.description}
 								onChange={this.handleChange}
+								required
 							/>
 						</div>
 						<div className="form-group col">
@@ -64,6 +65,7 @@ export default class ProjectForm extends Component {
 								name="assigned_team"
 								value={this.state.assigned_team}
 								onChange={this.handleChange}
+								required
 							/>
 						</div>
 					</div>

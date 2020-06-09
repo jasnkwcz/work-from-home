@@ -56,6 +56,7 @@ export default class FeatureForm extends Component {
 								placeholder="Project ID"
 								name="project_id"
 								onChange={this.handleChange}
+								required
 							/>
 						</div>
 						<div className="form-group col">
@@ -66,6 +67,7 @@ export default class FeatureForm extends Component {
 								id="type"
 								name="type"
 								onChange={this.handleChange}
+								required
 							>
 								<option value="1">Front End</option>
 								<option value="0">Back End</option>
@@ -79,6 +81,7 @@ export default class FeatureForm extends Component {
 								id="priority"
 								name="priority"
 								onChange={this.handleChange}
+								required
 							>
 								<option selected value="1">
 									1
@@ -97,6 +100,7 @@ export default class FeatureForm extends Component {
 								id="completed"
 								name="completed"
 								onChange={this.handleChange}
+								required
 							>
 								<option value="true">Yes</option>
 								<option selected value="false">
@@ -114,12 +118,13 @@ export default class FeatureForm extends Component {
 							id="description"
 							name="description"
 							onChange={this.handleChange}
+							required
 						/>
 					</div>
 
-					<Link exact to="/teams" type="submit" className="btn btn-primary" onClick={this.handleSubmit}>
-						Add feature
-					</Link>
+					<button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>
+						Add task
+					</button>
 				</form>
 			</div>
 		);

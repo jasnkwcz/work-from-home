@@ -55,6 +55,7 @@ export default class EmployeeForm extends Component {
 								placeholder="First name"
 								name="first_name"
 								onChange={this.handleChange}
+								required
 							/>
 						</div>
 						<div className="form-group col">
@@ -66,6 +67,7 @@ export default class EmployeeForm extends Component {
 								placeholder="Last name"
 								name="last_name"
 								onChange={this.handleChange}
+								required
 							/>
 						</div>
 					</div>
@@ -78,6 +80,7 @@ export default class EmployeeForm extends Component {
 								id="time_zone"
 								name="time_zone"
 								onChange={this.handleChange}
+								required
 							/>
 						</div>
 						<div className="form-group col">
@@ -88,8 +91,11 @@ export default class EmployeeForm extends Component {
 								id="seniority"
 								name="seniority"
 								onChange={this.handleChange}
+								required
 							>
-								<option value="New Grad">New Grad</option>
+								<option selected value="New Grad">
+									New Grad
+								</option>
 								<option value="Junior">Junior</option>
 								<option value="Senior">Senior</option>
 							</select>
@@ -103,6 +109,7 @@ export default class EmployeeForm extends Component {
 								placeholder="Team ID"
 								name="team_id"
 								onChange={this.handleChange}
+								required
 							/>
 						</div>
 					</div>
